@@ -27,7 +27,7 @@ public class SpareTire extends Tire {
     @Inject
     FuelTank fieldInjection = NEVER_INJECTED;
     FuelTank methodInjection = NEVER_INJECTED;
-    @Inject static FuelTank staticFieldInjection = NEVER_INJECTED;
+    //@Inject static FuelTank staticFieldInjection = NEVER_INJECTED;
     static FuelTank staticMethodInjection = NEVER_INJECTED;
 
     @Inject public SpareTire(FuelTank forSupertype, FuelTank forSubtype) {
@@ -42,12 +42,12 @@ public class SpareTire extends Tire {
         this.methodInjection = methodInjection;
     }
 
-    @Inject static void subtypeStaticMethodInjection(FuelTank methodInjection) {
-        if (!hasBeenStaticFieldInjected()) {
-            staticMethodInjectedBeforeStaticFields = true;
-        }
-        staticMethodInjection = methodInjection;
-    }
+//    @Inject static void subtypeStaticMethodInjection(FuelTank methodInjection) {
+//        if (!hasBeenStaticFieldInjected()) {
+//            staticMethodInjectedBeforeStaticFields = true;
+//        }
+//        staticMethodInjection = methodInjection;
+//    }
 
     @Inject private void injectPrivateMethod() {
         if (subPrivateMethodInjected) {
@@ -102,7 +102,7 @@ public class SpareTire extends Tire {
     }
 
     public static boolean hasBeenStaticFieldInjected() {
-        return staticFieldInjection != NEVER_INJECTED;
+        return false;
     }
 
     public static boolean hasBeenStaticMethodInjected() {

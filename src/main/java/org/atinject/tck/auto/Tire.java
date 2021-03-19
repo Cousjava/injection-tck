@@ -33,7 +33,7 @@ public class Tire extends RoundThing {
     FuelTank constructorInjection = NEVER_INJECTED;
     @Inject FuelTank fieldInjection = NEVER_INJECTED;
     FuelTank methodInjection = NEVER_INJECTED;
-    @Inject static FuelTank staticFieldInjection = NEVER_INJECTED;
+    //@Inject static FuelTank staticFieldInjection = NEVER_INJECTED;
     static FuelTank staticMethodInjection = NEVER_INJECTED;
 
     boolean constructorInjected;
@@ -82,18 +82,18 @@ public class Tire extends RoundThing {
         this.methodInjection = methodInjection;
     }
 
-    @Inject static void supertypeStaticMethodInjection(FuelTank methodInjection) {
-        if (!Tire.hasBeenStaticFieldInjected()) {
-            staticMethodInjectedBeforeStaticFields = true;
-        }
-        if (SpareTire.hasBeenStaticFieldInjected()) {
-            subtypeStaticFieldInjectedBeforeSupertypeStaticMethods = true;
-        }
-        if (SpareTire.hasBeenStaticMethodInjected()) {
-            subtypeStaticMethodInjectedBeforeSupertypeStaticMethods = true;
-        }
-        staticMethodInjection = methodInjection;
-    }
+//    @Inject static void supertypeStaticMethodInjection(FuelTank methodInjection) {
+//        if (!Tire.hasBeenStaticFieldInjected()) {
+//            staticMethodInjectedBeforeStaticFields = true;
+//        }
+//        if (SpareTire.hasBeenStaticFieldInjected()) {
+//            subtypeStaticFieldInjectedBeforeSupertypeStaticMethods = true;
+//        }
+//        if (SpareTire.hasBeenStaticMethodInjected()) {
+//            subtypeStaticMethodInjectedBeforeSupertypeStaticMethods = true;
+//        }
+//        staticMethodInjection = methodInjection;
+//    }
 
     @Inject private void injectPrivateMethod() {
         if (superPrivateMethodInjected) {
@@ -152,7 +152,7 @@ public class Tire extends RoundThing {
     }
 
     protected static boolean hasBeenStaticFieldInjected() {
-        return staticFieldInjection != NEVER_INJECTED;
+        return false;
     }
 
     protected static boolean hasBeenStaticMethodInjected() {
@@ -164,9 +164,11 @@ public class Tire extends RoundThing {
     }
 
     boolean packagePrivateMethod2Injected;
+    boolean superpackageprivatemethod2injected;
 
     @Inject void injectPackagePrivateMethod2() {
         packagePrivateMethod2Injected = true;
+        superpackageprivatemethod2injected = true;
     }
 
     public boolean packagePrivateMethod3Injected;

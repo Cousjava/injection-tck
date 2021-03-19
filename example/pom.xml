@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>jakarta.inject</groupId>
     <artifactId>jakarta.inject-tck-example</artifactId>
-    <version>2.0.1</version>
+    <version>2.0.4</version>
     <name>Jakarta Dependency Injection API TCK Example</name>
     <description>The Jakarta Dependency Injection API - TCK Example</description>
 
@@ -38,6 +38,20 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.26</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.hk2</groupId>
+            <artifactId>hk2-api</artifactId>
+            <version>3.0.2-SNAPSHOT</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.hk2</groupId>
+            <artifactId>hk2</artifactId>
+            <version>3.0.2-SNAPSHOT</version>
+            <scope>test</scope>
+            <type>jar</type>
         </dependency>
     </dependencies>
 
@@ -85,6 +99,7 @@
                     <includes>
                         <include>${runSuite}</include>
                     </includes>
+                    <trimStackTrace>false</trimStackTrace>
                 </configuration>
             </plugin>
         </plugins>
